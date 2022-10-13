@@ -1,5 +1,6 @@
 import {
     USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS,
+    USER_REGISTER_R_FAIL, USER_REGISTER_R_REQUEST, USER_REGISTER_R_SUCCESS,
 } from './types'
 import axios from '../../axios'
 
@@ -32,7 +33,7 @@ export const registerِCandidat = (user) => async (dispatch) => {
 export const registerِRecruiter = (user) => async (dispatch) => {
     try {
         dispatch({
-            type: USER_REGISTER_REQUEST,
+            type: USER_REGISTER_R_REQUEST,
         })
 
         const { data } = await axios.post(
@@ -40,13 +41,13 @@ export const registerِRecruiter = (user) => async (dispatch) => {
             user
         )
         dispatch({
-            type: USER_REGISTER_SUCCESS,
+            type: USER_REGISTER_R_SUCCESS,
             payload: data,
         })
         window.location.replace('/login')
     } catch (error) {
         dispatch({
-            type: USER_REGISTER_FAIL,
+            type: USER_REGISTER_R_FAIL,
             payload:
                 error.response && error.response.data.msg
                     ? error.response.data.msg

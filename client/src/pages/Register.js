@@ -9,7 +9,6 @@ function Register(props) {
     const dispatch = useDispatch()
     const { error: errorCandidat } = useSelector(state => state.userInfoCandidat)
     const { error: errorRecruiter } = useSelector(state => state.userInfoRecruiter)
-    console.log(errorCandidat, errorRecruiter);
     const handleChange = (e) => {
         setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
     };
