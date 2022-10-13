@@ -59,7 +59,7 @@ function UpdateProfileCandidat({ setEditing }) {
                 dispatch(updateUserProfile(newUser))
             })
             .catch(err => console.log(err))
-        if (success) { setEditing(false) }
+        setEditing(false)
     };
     return (
         <div className="col-lg-8">

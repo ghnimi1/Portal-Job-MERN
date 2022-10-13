@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchJobs } from '../redux/actions/jobActions';
 import Loader from '../components/Loader';
+import Carousel from '../components/Carousel';
 function Home(props) {
     const dispatch = useDispatch()
     const { searchJobs } = useSelector(state => state.searchJobs)
@@ -15,13 +16,13 @@ function Home(props) {
     }, [dispatch, searchJobs])
     return (
         <div>
+            <Carousel />
             <SearchBar />
             {loading ? <Loader /> : (<JobsList jobs={searchJobs ? searchJobs : jobs} />)}
-
             <a href="#" className="btn btn-lg btn-primary btn-lg-square back-to-top">
                 <i class="bi bi-arrow-up"></i>
             </a>
-        </div >
+        </div>
     );
 }
 

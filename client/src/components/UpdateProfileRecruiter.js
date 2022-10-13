@@ -33,7 +33,7 @@ function UpdateProfileRecruiter({ setEditing }) {
                 dispatch(updateRecruiterProfile({ companyInfo: newUser }))
             })
             .catch(err => console.log(err))
-        if (success) { setEditing(false) }
+        setEditing(false)
     };
     return (
         <div className="col-lg-8">

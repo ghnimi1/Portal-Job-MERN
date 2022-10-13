@@ -19,7 +19,7 @@ function EditJob() {
         e.preventDefault()
         const skills = skillsL?.toString().split(",").map((skill) => skill);
         dispatch(updateJob(id, { ...info, skills }))
-        if (success) { navigate('/homeRecruiter') }
+        navigate('/homeRecruiter')
     }
     useEffect(() => {
         dispatch(fetchSingleJob(id))
@@ -35,6 +35,14 @@ function EditJob() {
                             <input type="text" className="form-control" id="jobTitle"
                                 placeholder="Job title"
                                 defaultValue={job?.jobTitle}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="col-sm-6">
+                            <label className="form-label">Job Location</label>
+                            <input type="text" className="form-control" id="jobLocation"
+                                placeholder="Job title"
+                                defaultValue={job?.jobLocation}
                                 onChange={handleChange}
                             />
                         </div>
@@ -92,7 +100,7 @@ function EditJob() {
                             <div className="input-group has-validation">
                                 <textarea type="text" className="form-control" id="jobDescription"
                                     placeholder="job description"
-                                    defaultValue={job?.jobTitle}
+                                    defaultValue={job?.jobDescription}
                                     onChange={handleChange} />
                             </div>
                         </div>

@@ -16,7 +16,7 @@ function CreateJob() {
         e.preventDefault()
         const skills = skillsL?.toString().split(",").map((skill) => skill);
         dispatch(addJob({ ...info, skills }))
-        if (success) navigate('/homeRecruiter')
+        navigate('/homeRecruiter')
     }
     return (
         <div className='container'>
@@ -28,6 +28,14 @@ function CreateJob() {
                             <label className="form-label">Job Title</label>
                             <input type="text" className="form-control" id="jobTitle"
                                 placeholder="Job title"
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="col-sm-6">
+                            <label className="form-label">Job Location</label>
+                            <input type="text" className="form-control" id="jobLocation"
+                                placeholder="Job location"
                                 onChange={handleChange}
                             />
                         </div>
@@ -78,7 +86,8 @@ function CreateJob() {
                         <div className="col-sm-6">
                             <label className="form-label">Job Description</label>
                             <div className="input-group has-validation">
-                                <textarea type="text" rows={3} className="form-control" id="jobDescription"
+                                <textarea type="text" rows={3}
+                                    className="form-control" id="jobDescription"
                                     placeholder="job description"
                                     onChange={handleChange} />
                             </div>

@@ -20,6 +20,7 @@ const createJob = async (req, res) => {
             companyName,
             companyURL,
             workType,
+            jobLocation,
             payScale,
             skills,
         } = req.body;
@@ -28,6 +29,7 @@ const createJob = async (req, res) => {
             recruiterId: req.recruiter._id,
             jobTitle,
             jobType,
+            jobLocation,
             jobDescription,
             companyName,
             companyURL,
